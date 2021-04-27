@@ -1,13 +1,15 @@
 import { SlideInterface } from "../../types";
-import { SlideImage } from "./style";
+
+import { SlideItem, SlideImage } from "./style";
 
 const Slide: React.FC<{ slide: SlideInterface; width: number }> = ({
   slide,
+  width,
 }) => {
   return (
-    <li>
+    <SlideItem>
       <SlideImage src={slide.image} alt={slide.title} />
-    </li>
+    </SlideItem>
   );
 };
 

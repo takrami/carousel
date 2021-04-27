@@ -2,6 +2,10 @@
   /* SPACING */
   --spacing: 4px;
 
+  /* COLOR PALLET */
+  --primaryColor: #4a566e;
+  --secondaryColor: #00b595;
+
   /* FONTS */
   --primaryFont: "Roboto", sans-serif;
 }
