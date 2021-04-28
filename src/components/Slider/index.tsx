@@ -16,7 +16,9 @@ import {
 const Slider: React.FC<{
   slides: SlideInterface[];
   autoPlay?: boolean;
-}> = ({ slides, autoPlay = false }) => {
+  showArrow: boolean;
+  showDots: boolean;
+}> = ({ slides, autoPlay = false, showArrow, showDots }) => {
   const slidesLength: number = slides.length;
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);
@@ -106,22 +108,28 @@ const Slider: React.FC<{
           return <Slide key={slide.id} slide={slide} width={width} />;
         })}
       </SliderList>
-      <NextButton aria-label="Next Slide" onClick={nextSlide} />
-      <PrevButton aria-label="Previous Slide" onClick={prevSlide} />
-      <Dots>
-        {slides.map((slide, index) => {
-          return (
-            <Dot
-              aria-label={`Slide ${currentIndex}`}
-              key={slide.id}
-              isActive={index === currentIndex}
-              onClick={() => {
-                setCurrentIndex(index);
-              }}
-            />
-          );
-        })}
-      </Dots>
+      {showArrow && (
+        <>
+          <NextButton aria-label="Next Slide" onClick={nextSlide} />
+          <PrevButton aria-label="Previous Slide" onClick={prevSlide} />
+        </>
+      )}
+      {showDots && (
+        <Dots>
+          {slides.map((slide, index) => {
+            return (
+              <Dot
+                aria-label={`Slide ${currentIndex}`}
+                key={slide.id}
+                isActive={index === currentIndex}
+                onClick={() => {
+                  setCurrentIndex(index);
+                }}
+              />
+            );
+          })}
+        </Dots>
+      )}
     </SliderContainer>
   );
 };

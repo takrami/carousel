@@ -9,7 +9,7 @@ const Main: React.FC = () => {
     <PageContainer>
       <Header />
       <MainContainer>
-        <Slider slides={slide.items} />
+        <Slider slides={slide.items} showArrow={true} showDots={true} />
       </MainContainer>
     </PageContainer>
   );
