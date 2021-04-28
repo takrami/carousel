@@ -16,9 +16,9 @@ import {
 const Slider: React.FC<{
   slides: SlideInterface[];
   autoPlay?: boolean;
-  showArrow?: boolean;
+  showArrows?: boolean;
   showDots?: boolean;
-}> = ({ slides, autoPlay = false, showArrow = true, showDots = true }) => {
+}> = ({ slides, autoPlay = false, showArrows = true, showDots = true }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
   const [dragStart, setDragStart] = useState<number>(0);
   const [dragEnd, setDragEnd] = useState<number>(0);
@@ -110,7 +110,7 @@ const Slider: React.FC<{
           return <Slide key={slide.id} slide={slide} />;
         })}
       </SliderList>
-      {showArrow && (
+      {showArrows && (
         <>
           <NextButton
             aria-label="Next Slide"
