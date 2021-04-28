@@ -62,18 +62,23 @@ const Slider: React.FC<{
     }
   }, [autoPlay, currentIndex, delay, isHovered, slidesLength]);
 
-  document.addEventListener("keydown", function (e: any) {
-    switch (e.keyCode) {
-      case 37:
-        prevSlide();
-        break;
-      case 39:
-        nextSlide();
-        break;
-      default:
-        return;
-    }
-  });
+  useEffect(() => {
+    const handleKeyNavigation = (e: any) => {
+      switch (e.keyCode) {
+        case 37:
+          prevSlide();
+          break;
+        case 39:
+          nextSlide();
+          break;
+        default:
+          return;
+      }
+    };
+    document.addEventListener("keydown", handleKeyNavigation);
+
+    return () => document.removeEventListener("keydown", handleKeyNavigation);
+  }, [nextSlide, prevSlide]);
 
   return (
     <SliderContainer
