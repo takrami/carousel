@@ -10,8 +10,7 @@ import {
 
 const Slide: React.FC<{
   slide: SlideInterface;
-  width: number;
-}> = ({ slide, width }) => {
+}> = ({ slide }) => {
   return (
     <SlideItem>
       <SlideImage src={slide.image} alt={slide.title} />

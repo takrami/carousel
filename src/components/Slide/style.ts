@@ -18,12 +18,14 @@ const SlideContentContainer = styled.div`
   padding: calc(var(--spacing) * 4) calc(var(--spacing) * 4);
   background-color: rgba(255, 251, 251, 0.5);
   cursor: auto;
+  border-radius: 4px;
 `;
 
 const SlideTitle = styled.h2`
   color: var(--primaryColor);
   padding-bottom: calc(var(--spacing) * 2);
   font-weight: bold;
+  text-transform: capitalize;
 `;
 
 const SlideDescription = styled.p`

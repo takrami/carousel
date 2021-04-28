@@ -4,7 +4,13 @@ import { useTranslation } from "react-i18next";
 import locales from "../../locales";
 import { getAllLanguages, formatLanguageName } from "../../utils";
 
-import { HeaderContainer, HeaderTitle, Languages, Language } from "./style";
+import {
+  HeaderContainer,
+  HeaderTitle,
+  Languages,
+  Language,
+  LanguageText,
+} from "./style";
 
 const languages = getAllLanguages(locales);
 
@@ -23,9 +29,12 @@ const Header: React.FC = () => {
       <Languages>
         {languages.map((language) => (
           <Language key={language}>
-            <a href="#en" onClick={(e) => changeLanguage(e, language)}>
+            <LanguageText
+              href="#en"
+              onClick={(e) => changeLanguage(e, language)}
+            >
               {formatLanguageName(language)}
-            </a>
+            </LanguageText>
           </Language>
         ))}
       </Languages>
