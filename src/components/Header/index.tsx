@@ -16,7 +16,7 @@ const languages = getAllLanguages(locales);
 
 const Header: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const [lang, setLang] = useState(i18n.languages[0]);
+  const [, setLang] = useState(i18n.languages[0]);
 
   const changeLanguage = (e: any, selectedLang: any) => {
     e.preventDefault();
