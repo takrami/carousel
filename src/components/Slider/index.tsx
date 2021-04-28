@@ -20,10 +20,10 @@ const Slider: React.FC<{
   showDots?: boolean;
 }> = ({ slides, autoPlay = false, showArrow = true, showDots = true }) => {
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const [dragStart, setDragStart] = useState(0);
-  const [dragEnd, setDragEnd] = useState(0);
-  const [delay, setDelay] = useState(0);
-  const [isHovered, setIsHovered] = useState(false);
+  const [dragStart, setDragStart] = useState<number>(0);
+  const [dragEnd, setDragEnd] = useState<number>(0);
+  const [delay, setDelay] = useState<number>(0);
+  const [isHovered, setIsHovered] = useState<boolean>(false);
   const sliderContainerRef = useRef<HTMLDivElement>(null);
 
   const width: number = useWidth(sliderContainerRef);
