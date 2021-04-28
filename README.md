@@ -52,8 +52,9 @@ npx cypress open
 ## How to use Slider component
 
 `Slider` component can be used with the following parameters:
-| parameter | type | default value |
-| :------------ |:---------------| -----|
-| slides | SlideInterface[] | - |
-| col 2 is | centered | $12 |
-| zebra stripes | are neat | $1 |
+| parameter | type | default | description
+| :------------ |:---------------|:----------|:---|
+| slides | SlideInterface[] | - | Contains array of slide objects. For more info about the properties checkout `SlideInterface` definition.
+| showArrows | boolean | true | Hide or show next/previous arrows
+| showDots | boolean | true | Hide or show slide bullets
+| autoPlay | boolean | false | Will enable auto play for the carousel. The delay time is included as a property in each slide object. For more info about the properties checkout `SlideInterface`
