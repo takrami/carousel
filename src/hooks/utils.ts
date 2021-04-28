@@ -1,24 +1,31 @@
-import { useState, useEffect } from "react";
+import React, { useState, useEffect, useCallback } from "react";
 
-const useWidth = (containerRef: { current: any }): number => {
-  const ref = containerRef?.current;
-  let elementWidth: number;
+function useWidth<T extends HTMLElement = HTMLDivElement>(
+  elementRef: React.RefObject<T>
+): number {
+  const [width, setWidth] = useState<number>(0);
 
-  if (window.innerWidth > 900) {
-    elementWidth = 900;
-  } else {
-    elementWidth = window.innerWidth;
-  }
-  const [width, setWidth] = useState(ref?.offsetWidth || elementWidth);
+  // Prevent too many rendering using useCallback
+  const updateWidth = useCallback(() => {
+    const node = elementRef?.current;
+    if (node) {
+      setWidth(node.offsetWidth || 0);
+    }
+  }, [elementRef]);
+
+  // Initial size on mount
+  useEffect(() => {
+    updateWidth();
+  }, [updateWidth]);
 
   useEffect(() => {
-    const resize = () => setWidth(ref?.offsetWidth || elementWidth);
-    window.addEventListener("resize", resize);
+    window.addEventListener("resize", updateWidth);
     return () => {
-      window.removeEventListener("resize", resize);
+      window.removeEventListener("resize", updateWidth);
     };
   });
+
   return width;
-};
+}
 
 export { useWidth };
