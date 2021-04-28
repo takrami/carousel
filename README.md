@@ -1,6 +1,14 @@
 # Carousel
 
 Responsive Carousel based on React.
+Used technologies:
+
+- React (as the main UI library)
+- React router
+- Typescript (typing)
+- Styled-components (styling)
+- Cypress (e2e test)
+- i18n (internationalization)
 
 ## How To Start
 
@@ -16,7 +24,7 @@ git clone git@github.com:takrami/carousel.git
 cd carousel
 ```
 
-3. Install the packages.
+3. Install the dependencies.
 
 ```sh
 yarn
@@ -47,7 +55,8 @@ npx cypress open
 ```
 
 > Tests do not cover all scenarios. More test cases can be added.
-> If you decided to change the app port. You also have to change the port in the following file `cypress/integration/spec.ts` line `9`. (This can be added to test env when it's configured for sure)
+
+> If you decided to change the app port. You also have to change the port in the following file `cypress/integration/spec.ts` line `9`. (This can be added to test env when it's configured)
 
 ## How to use Slider component
 
@@ -60,5 +69,21 @@ npx cypress open
 | autoPlay | boolean | false | Will enable auto play for the carousel. The delay time is included as a property in each slide object. For more info about the properties checkout `SlideInterface`
 
 ## Latest lighthouse audit
+
 ![image](https://user-images.githubusercontent.com/29104089/116476931-37c4fd80-a87c-11eb-9ac9-8d3a6d283cc5.png)
 
+## Todo
+
+- [ ] Add more test cases.
+- [ ] Add unit tests.
+- [ ] Add state management to have better decoupled components.
+- [ ] Add `slidesPerView` parameter.
+- [ ] Add `slidesPerScreenSize` parameter.
+- [ ] Add `onSlideChange` parameter.
+- [ ] Add `onSlideEnd` parameter.
+- [ ] Add `onSlideStart` parameter.
+- [ ] Add `slidesLoop` parameter.
+
+## Live Demo
+
+https://simple-carousel-app.netlify.app/
