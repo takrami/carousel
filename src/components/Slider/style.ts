@@ -1,9 +1,8 @@
 import styled from "styled-components";
-import { FiArrowRightCircle, FiArrowLeftCircle } from "react-icons/fi";
+import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
 import { GoPrimitiveDot } from "react-icons/go";
 
 const SliderContainer = styled.div`
-  border: 1px solid blue;
   position: relative;
   width: 100%;
   overflow: hidden;
@@ -20,12 +19,8 @@ const SliderList = styled.ol<{
   transform: ${({ currentIndex, slideWidth }) =>
     `translate3d(-${currentIndex * slideWidth}px, 0px, 0px)`};
 `;
-/* transform: ${({ current, width }: { current: number; width: number }) =>
-    `translate3d(-${current * width}px, 0px, 0px)`}; */
-// transform: ${({ current, width }: { current: number; width: number }) =>
-// `translate3d(-${current * width}px, 0px, 0px)`};
 
-const NextButton = styled(FiArrowRightCircle)`
+const NextButton = styled(FiChevronRight)`
   color: var(--primaryColor);
   position: absolute;
   top: 50%;
@@ -34,7 +29,7 @@ const NextButton = styled(FiArrowRightCircle)`
   transform: translateY(-50%);
 `;
 
-const PrevButton = styled(FiArrowLeftCircle)`
+const PrevButton = styled(FiChevronLeft)`
   color: var(--primaryColor);
   position: absolute;
   top: 50%;
