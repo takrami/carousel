@@ -2,10 +2,16 @@ import { useState, useEffect } from "react";
 
 const useWidth = (containerRef: { current: any }) => {
   const ref = containerRef?.current;
-  const [width, setWidth] = useState(ref?.offsetWidth || window.innerWidth);
+  let elementWidth: number;
+  if (window.innerWidth > 900) {
+    elementWidth = 900;
+  } else {
+    elementWidth = window.innerWidth;
+  }
+  const [width, setWidth] = useState(ref?.offsetWidth || elementWidth);
 
   useEffect(() => {
-    const resize = () => setWidth(ref?.offsetWidth || window.innerWidth);
+    const resize = () => setWidth(ref?.offsetWidth || elementWidth);
     window.addEventListener("resize", resize);
     return () => {
       window.removeEventListener("resize", resize);
