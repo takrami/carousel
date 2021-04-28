@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 
 import Slide from "../Slide";
 import { useWidth } from "../../hooks/utils";
@@ -30,13 +30,13 @@ const Slider: React.FC<{
 
   const slidesLength: number = slides.length;
 
-  const nextSlide = (): void => {
+  const nextSlide = useCallback((): void => {
     setCurrentIndex(currentIndex === slidesLength - 1 ? 0 : currentIndex + 1);
-  };
+  }, [currentIndex, slidesLength]);
 
-  const prevSlide = (): void => {
+  const prevSlide = useCallback((): void => {
     setCurrentIndex(currentIndex === 0 ? slidesLength - 1 : currentIndex - 1);
-  };
+  }, [currentIndex, slidesLength]);
 
   const onDrag = (): void => {
     if (dragStart < dragEnd) {
@@ -53,14 +53,12 @@ const Slider: React.FC<{
   useEffect(() => {
     if (autoPlay && !isHovered) {
       const timeout = setTimeout(() => {
-        setCurrentIndex(
-          currentIndex === slidesLength - 1 ? 0 : currentIndex + 1
-        );
+        nextSlide();
       }, delay);
 
       return () => clearTimeout(timeout);
     }
-  }, [autoPlay, currentIndex, delay, isHovered, slidesLength]);
+  }, [autoPlay, delay, isHovered, nextSlide]);
 
   useEffect(() => {
     const handleKeyNavigation = (e: KeyboardEvent) => {
