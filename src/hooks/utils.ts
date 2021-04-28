@@ -1,8 +1,9 @@
 import { useState, useEffect } from "react";
 
-const useWidth = (containerRef: { current: any }) => {
+const useWidth = (containerRef: { current: any }): number => {
   const ref = containerRef?.current;
   let elementWidth: number;
+
   if (window.innerWidth > 900) {
     elementWidth = 900;
   } else {

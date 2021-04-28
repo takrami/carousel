@@ -1,4 +1,4 @@
-import { useState } from "react";
+import React from "react";
 import { useTranslation } from "react-i18next";
 
 import locales from "../../locales";
@@ -16,11 +16,9 @@ const languages = getAllLanguages(locales);
 
 const Header: React.FC = () => {
   const { t, i18n } = useTranslation();
-  const [, setLang] = useState(i18n.languages[0]);
 
-  const changeLanguage = (e: any, selectedLang: any) => {
+  const changeLanguage = (e: React.MouseEvent, selectedLang: string): void => {
     e.preventDefault();
-    setLang(selectedLang);
     i18n.changeLanguage(selectedLang);
   };
   return (
@@ -28,11 +26,8 @@ const Header: React.FC = () => {
       <HeaderTitle>{t("mainTitle")}</HeaderTitle>
       <Languages>
         {languages.map((language) => (
-          <Language key={language}>
-            <LanguageText
-              href="#en"
-              onClick={(e) => changeLanguage(e, language)}
-            >
+          <Language key={language} isActive={i18n.language === language}>
+            <LanguageText href="#" onClick={(e) => changeLanguage(e, language)}>
               {formatLanguageName(language)}
             </LanguageText>
           </Language>

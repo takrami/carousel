@@ -6,4 +6,10 @@ interface SlideInterface {
   image: string;
 }
 
-export type { SlideInterface };
+interface LocaleInterface {
+  [key: string]: {
+    translation: object;
+  };
+}
+
+export type { SlideInterface, LocaleInterface };

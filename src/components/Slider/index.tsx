@@ -1,4 +1,4 @@
-import { useState, useEffect, useRef } from "react";
+import React, { useState, useEffect, useRef } from "react";
 
 import Slide from "../Slide";
 import { useWidth } from "../../hooks/utils";
@@ -19,16 +19,16 @@ const Slider: React.FC<{
   showArrow?: boolean;
   showDots?: boolean;
 }> = ({ slides, autoPlay = false, showArrow = true, showDots = true }) => {
-  const slidesLength: number = slides.length;
-
   const [currentIndex, setCurrentIndex] = useState<number>(0);
-  const sliderContainerRef = useRef<HTMLDivElement>(null);
-  const width: number = useWidth(sliderContainerRef);
-
   const [dragStart, setDragStart] = useState(0);
   const [dragEnd, setDragEnd] = useState(0);
   const [delay, setDelay] = useState(0);
   const [isHovered, setIsHovered] = useState(false);
+  const sliderContainerRef = useRef<HTMLDivElement>(null);
+
+  const width: number = useWidth(sliderContainerRef);
+
+  const slidesLength: number = slides.length;
 
   const nextSlide = (): void => {
     setCurrentIndex(currentIndex === slidesLength - 1 ? 0 : currentIndex + 1);
@@ -38,7 +38,7 @@ const Slider: React.FC<{
     setCurrentIndex(currentIndex === 0 ? slidesLength - 1 : currentIndex - 1);
   };
 
-  const onDrag = () => {
+  const onDrag = (): void => {
     if (dragStart < dragEnd) {
       prevSlide();
     } else {
@@ -63,12 +63,12 @@ const Slider: React.FC<{
   }, [autoPlay, currentIndex, delay, isHovered, slidesLength]);
 
   useEffect(() => {
-    const handleKeyNavigation = (e: any) => {
-      switch (e.keyCode) {
-        case 37:
+    const handleKeyNavigation = (e: KeyboardEvent) => {
+      switch (e.key) {
+        case "ArrowLeft":
           prevSlide();
           break;
-        case 39:
+        case "ArrowRight":
           nextSlide();
           break;
         default:

@@ -67,10 +67,11 @@ const LanguageText = styled.a`
   padding: var(--spacing) calc(var(--spacing) * 2);
 `;
 
-const Language = styled.li`
+const Language = styled.li<{ isActive: boolean }>`
   background-color: var(--subColor);
   transition: all 0cubic-bezier(0.55, 0.055, 0.675, 0.19);
   border-radius: 4px;
+  font-weight: ${({ isActive }) => (isActive ? "bold" : "normal")};
   &:hover {
     background-color: var(--primaryColor);
     ${LanguageText} {
