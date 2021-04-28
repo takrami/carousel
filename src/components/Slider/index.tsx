@@ -67,7 +67,6 @@ const Slider: React.FC<{
       case 37:
         prevSlide();
         break;
-
       case 39:
         nextSlide();
         break;
