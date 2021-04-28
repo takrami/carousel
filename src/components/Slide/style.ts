@@ -17,6 +17,7 @@ const SlideContentContainer = styled.div`
   right: 5%;
   padding: calc(var(--spacing) * 4) calc(var(--spacing) * 4);
   background-color: rgba(255, 251, 251, 0.5);
+  cursor: auto;
 `;
 
 const SlideTitle = styled.h2`

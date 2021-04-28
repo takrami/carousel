@@ -11,7 +11,6 @@ import {
   PrevButton,
   Dots,
   Dot,
-  DotIcon,
 } from "./style";
 
 const Slider: React.FC<{
@@ -61,8 +60,23 @@ const Slider: React.FC<{
     }
   }, [autoPlay, currentIndex, delay, isHovered, slidesLength]);
 
+  document.addEventListener("keydown", function (e: any) {
+    switch (e.keyCode) {
+      case 37:
+        prevSlide();
+        break;
+
+      case 39:
+        nextSlide();
+        break;
+      default:
+        return;
+    }
+  });
+
   return (
     <SliderContainer
+      aria-label="Minimal Images"
       ref={sliderContainerRef}
       onDragStart={(e) => {
         setDragStart(e.clientX);
@@ -92,20 +106,19 @@ const Slider: React.FC<{
           return <Slide key={slide.id} slide={slide} width={width} />;
         })}
       </SliderList>
-      <NextButton onClick={nextSlide} />
-      <PrevButton onClick={prevSlide} />
+      <NextButton aria-label="Next Slide" onClick={nextSlide} />
+      <PrevButton aria-label="Previous Slide" onClick={prevSlide} />
       <Dots>
         {slides.map((slide, index) => {
           return (
-            <Dot key={slide.id}>
-              <DotIcon
-                key={slide.id}
-                isActive={index === currentIndex}
-                onClick={() => {
-                  setCurrentIndex(index);
-                }}
-              />
-            </Dot>
+            <Dot
+              aria-label={`Slide ${currentIndex}`}
+              key={slide.id}
+              isActive={index === currentIndex}
+              onClick={() => {
+                setCurrentIndex(index);
+              }}
+            />
           );
         })}
       </Dots>

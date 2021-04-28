@@ -6,6 +6,7 @@ const SliderContainer = styled.div`
   width: 100%;
   overflow: hidden;
   border-radius: 4px;
+  cursor: grab;
 `;
 
 const SliderList = styled.ol<{
@@ -27,6 +28,7 @@ const NextButton = styled(FiChevronRight)`
   right: 1%;
   font-size: 3rem;
   transform: translateY(-50%);
+  cursor: pointer;
 `;
 
 const PrevButton = styled(FiChevronLeft)`
@@ -36,20 +38,21 @@ const PrevButton = styled(FiChevronLeft)`
   left: 1%;
   font-size: 3rem;
   transform: translateY(-50%);
+  cursor: pointer;
 `;
 
 const Dots = styled.ol`
   position: absolute;
   display: flex;
   gap: 8px;
-  bottom: 2%;
+  bottom: 0;
   left: 50%;
   transform: translateX(-50%);
+  cursor: pointer;
+  padding: calc(var(--spacing) * 4);
 `;
 
-const Dot = styled.li``;
-
-const DotIcon = styled.i<{ isActive: boolean }>`
+const Dot = styled.li<{ isActive: boolean }>`
   display: block;
   width: 10px;
   height: 10px;
@@ -58,12 +61,4 @@ const DotIcon = styled.i<{ isActive: boolean }>`
     isActive ? "var(--subColor)" : "var(--secondaryColor)"};
 `;
 
-export {
-  SliderContainer,
-  SliderList,
-  NextButton,
-  PrevButton,
-  Dots,
-  Dot,
-  DotIcon,
-};
+export { SliderContainer, SliderList, NextButton, PrevButton, Dots, Dot };
