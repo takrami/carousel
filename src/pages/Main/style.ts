@@ -1,9 +1,17 @@
 import styled from "styled-components";
 
+const PageContainer = styled.div`
+  display: flex;
+  flex-flow: column;
+  height: 100vh;
+`;
+
 const MainContainer = styled.main`
   max-width: 900px;
   margin: 0 auto;
-  padding: calc(var(--spacing) * 4);
+  flex: 1 1 auto;
+  display: grid;
+  align-items: center;
 `;
 
-export { MainContainer };
+export { PageContainer, MainContainer };

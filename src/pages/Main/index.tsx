@@ -1,12 +1,17 @@
-import Slider from "../../components/Slider";
-import { MainContainer } from "./style";
 import { slide } from "../../data";
+import Header from "../../components/Header";
+import Slider from "../../components/Slider";
+
+import { PageContainer, MainContainer } from "./style";
 
 const Main: React.FC = () => {
   return (
-    <MainContainer>
-      <Slider slides={slide.items} autoPlay={false} />
-    </MainContainer>
+    <PageContainer>
+      <Header />
+      <MainContainer>
+        <Slider slides={slide.items} />
+      </MainContainer>
+    </PageContainer>
   );
 };
 

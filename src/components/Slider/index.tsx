@@ -16,8 +16,8 @@ import {
 
 const Slider: React.FC<{
   slides: SlideInterface[];
-  autoPlay: boolean;
-}> = ({ slides, autoPlay }) => {
+  autoPlay?: boolean;
+}> = ({ slides, autoPlay = false }) => {
   const slidesLength: number = slides.length;
 
   const [currentIndex, setCurrentIndex] = useState<number>(0);

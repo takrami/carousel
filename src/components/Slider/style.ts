@@ -1,11 +1,11 @@
 import styled from "styled-components";
 import { FiChevronRight, FiChevronLeft } from "react-icons/fi";
-import { GoPrimitiveDot } from "react-icons/go";
 
 const SliderContainer = styled.div`
   position: relative;
   width: 100%;
   overflow: hidden;
+  border-radius: 4px;
 `;
 
 const SliderList = styled.ol<{
@@ -21,7 +21,7 @@ const SliderList = styled.ol<{
 `;
 
 const NextButton = styled(FiChevronRight)`
-  color: var(--primaryColor);
+  color: var(--secondaryColor);
   position: absolute;
   top: 50%;
   right: 1%;
@@ -30,7 +30,7 @@ const NextButton = styled(FiChevronRight)`
 `;
 
 const PrevButton = styled(FiChevronLeft)`
-  color: var(--primaryColor);
+  color: var(--secondaryColor);
   position: absolute;
   top: 50%;
   left: 1%;
@@ -49,10 +49,13 @@ const Dots = styled.ol`
 
 const Dot = styled.li``;
 
-const DotIcon = styled(GoPrimitiveDot)<{ isActive: boolean }>`
-  color: var(--primaryColor);
-  color: ${({ isActive }) =>
-    isActive ? "var(--secondaryColor)" : "var(--primaryColor)"};
+const DotIcon = styled.i<{ isActive: boolean }>`
+  display: block;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background-color: ${({ isActive }) =>
+    isActive ? "var(--subColor)" : "var(--secondaryColor)"};
 `;
 
 export {
