@@ -112,12 +112,20 @@ const Slider: React.FC<{
       </SliderList>
       {showArrow && (
         <>
-          <NextButton aria-label="Next Slide" onClick={nextSlide} />
-          <PrevButton aria-label="Previous Slide" onClick={prevSlide} />
+          <NextButton
+            aria-label="Next Slide"
+            onClick={nextSlide}
+            className="next-arrow"
+          />
+          <PrevButton
+            aria-label="Previous Slide"
+            onClick={prevSlide}
+            className="previous-arrow"
+          />
         </>
       )}
       {showDots && (
-        <Dots>
+        <Dots className="dots">
           {slides.map((slide, index) => {
             return (
               <Dot
