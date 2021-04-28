@@ -5,7 +5,7 @@ import { slide } from "../../data";
 const Main: React.FC = () => {
   return (
     <MainContainer>
-      <Slider slides={slide.items} />
+      <Slider slides={slide.items} autoPlay={false} />
     </MainContainer>
   );
 };
