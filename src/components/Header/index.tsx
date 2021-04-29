@@ -22,7 +22,7 @@ const Header: React.FC = () => {
     i18n.changeLanguage(selectedLang);
   };
   return (
-    <HeaderContainer>
+    <HeaderContainer role="heading" aria-level={1}>
       <HeaderTitle>{t("mainTitle")}</HeaderTitle>
       <Languages>
         {languages.map((language) => (
