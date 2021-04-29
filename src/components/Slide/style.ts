@@ -19,6 +19,17 @@ const SlideContentContainer = styled.div`
   background-color: rgba(255, 251, 251, 0.5);
   cursor: auto;
   border-radius: 4px;
+  @media only screen and (max-width: 768px) {
+    flex-direction: column;
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+  }
 `;
 
 const SlideTitle = styled.h2`

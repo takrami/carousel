@@ -1,4 +1,4 @@
-import { slide } from "../../data";
+import { slider } from "../../data";
 import Header from "../../components/Header";
 import Slider from "../../components/Slider";
 
@@ -9,7 +9,7 @@ const Main: React.FC = () => {
     <PageContainer>
       <Header />
       <MainContainer>
-        <Slider slides={slide.items} showArrows={true} showDots={true} />
+        <Slider slides={slider.items} showArrows={true} showDots={true} />
       </MainContainer>
     </PageContainer>
   );

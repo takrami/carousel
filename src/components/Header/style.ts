@@ -1,64 +1,61 @@
-import styled, { keyframes } from "styled-components";
-
-const vibration = keyframes`
- 0% {
-    -webkit-transform: translate(2px, 1px) rotate(0deg);
-  }
-  10% {
-    -webkit-transform: translate(-1px, -2px) rotate(-2deg);
-  }
-  20% {
-    -webkit-transform: translate(-3px, 0px) rotate(3deg);
-  }
-  30% {
-    -webkit-transform: translate(0px, 2px) rotate(0deg);
-  }
-  40% {
-    -webkit-transform: translate(1px, -1px) rotate(1deg);
-  }
-  50% {
-    -webkit-transform: translate(-1px, 2px) rotate(-1deg);
-  }
-  60% {
-    -webkit-transform: translate(-3px, 1px) rotate(0deg);
-  }
-  70% {
-    -webkit-transform: translate(2px, 1px) rotate(-2deg);
-  }
-  80% {
-    -webkit-transform: translate(-1px, -1px) rotate(4deg);
-  }
-  90% {
-    -webkit-transform: translate(2px, 2px) rotate(0deg);
-  }
-  100% {
-    -webkit-transform: translate(1px, -2px) rotate(-1deg);
-  }
-`;
+import styled from "styled-components";
 
 const HeaderContainer = styled.header`
   flex: 0 1 auto;
-  display: flex;
-  justify-content: space-between;
   height: 100px;
+  padding: calc(var(--spacing) * 4) 0;
+  display: grid;
+  grid-template-columns: auto 1fr;
   align-items: center;
 `;
 
 const HeaderTitle = styled.h1`
   color: var(--primaryColor);
-  font-size: 3em;
+  font-size: 3rem;
+  transition: all 1s ease-in-out;
+  background: -webkit-linear-gradient(
+    to right bottom,
+    #4a566e,
+    #436783,
+    #337994,
+    #198c9f,
+    #009ea2,
+    #00ab9c,
+    #1cb78e,
+    #4dc27a,
+    #78c961,
+    #a3cd46,
+    #d0ce2c,
+    #ffcb1c
+  ); /* Chrome 10-25, Safari 5.1-6 */
+  background: linear-gradient(
+    to right bottom,
+    #4a566e,
+    #436783,
+    #337994,
+    #198c9f,
+    #009ea2,
+    #00ab9c,
+    #1cb78e,
+    #4dc27a,
+    #78c961,
+    #a3cd46,
+    #d0ce2c,
+    #ffcb1c
+  ); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+
+  color: transparent;
+  background-clip: text;
+  -webkit-background-clip: text;
   &:hover {
-    animation-name: ${vibration};
-    animation-duration: 0.8s;
-    animation-iteration-count: infinite;
-    animation-timing-function: linear;
-    transform-origin: 50% 100%;
+    color: var(--primaryColor);
   }
 `;
 
 const Languages = styled.ul`
   display: flex;
   gap: calc(var(--spacing) * 2);
+  justify-content: flex-end;
 `;
 
 const LanguageText = styled.a`

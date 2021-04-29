@@ -1,4 +1,4 @@
-export const slide = {
+export const slider = {
   items: [
     {
       id: 1,

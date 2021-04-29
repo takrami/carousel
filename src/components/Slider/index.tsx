@@ -107,13 +107,7 @@ const Slider: React.FC<{
         slideWidth={width}
       >
         {slides.map((slide) => {
-          return (
-            <Slide
-              key={slide.id}
-              slide={slide}
-              aria-label={`Slide ${currentIndex}`}
-            />
-          );
+          return <Slide key={slide.id} slide={slide} />;
         })}
       </SliderList>
       {showArrows && (
