@@ -9,6 +9,7 @@ const Main: React.FC = () => {
     <PageContainer>
       <Header />
       <MainContainer>
+        {/* You can pass parameters here. For more information: https://github.com/takrami/carousel#how-to-use-slider-component */}
         <Slider slides={slider.items} showArrows={true} showDots={true} />
       </MainContainer>
     </PageContainer>

@@ -13,7 +13,7 @@ function useWidth<T extends HTMLElement = HTMLDivElement>(
     }
   }, [elementRef]);
 
-  // Initial size on mount
+  // Initial width on mount
   useEffect(() => {
     updateWidth();
   }, [updateWidth]);

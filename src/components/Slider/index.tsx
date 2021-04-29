@@ -46,10 +46,12 @@ const Slider: React.FC<{
     }
   };
 
+  // It gets delay from data file
   useEffect(() => {
     setDelay(slides[currentIndex].delay);
   }, [currentIndex, slides]);
 
+  // When autoplay is true and it is not hovered slides go automatically. When slide is hovered it pauses the slideshow.
   useEffect(() => {
     if (autoPlay && !isHovered) {
       const timeout = setTimeout(() => {
