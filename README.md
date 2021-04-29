@@ -50,13 +50,15 @@ The production build will be end up in `build` directory.
 
 Rename `.env.example` to `.env`. Then run the following command:
 
+> To run tests you need to start the project first.
+
 ```
 npx cypress open
 ```
 
 > Tests do not cover all scenarios. More test cases can be added.
 
-> If you decided to change the app port. You also have to change the port in the following file `cypress/integration/spec.ts` line `9`. (This can be added to test env when it's configured)
+> If you decided to change the app port. You also need to change the port in the following file `cypress/integration/spec.ts` line `9`. (This can be added to test env when it's configured)
 
 ## How to use Slider component
 
