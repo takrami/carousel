@@ -30,7 +30,6 @@ const NextButton = styled(FiChevronRight)`
   cursor: pointer;
   transition: all 0.3s ease-in-out;
   @media only screen and (min-width: 768px) {
-    /* transform: translateY(-50%); */
     bottom: 50%;
     font-size: 3rem;
     &:hover {
